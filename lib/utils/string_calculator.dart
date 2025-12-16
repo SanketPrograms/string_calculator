@@ -1,6 +1,8 @@
 class StringCalculator {
   int add(String numbers) {
     if (numbers.isEmpty) return 0;
-    return int.parse(numbers);
+
+    final values = numbers.split(',');
+    return values.map(int.parse).reduce((a, b) => a + b);
   }
 }
