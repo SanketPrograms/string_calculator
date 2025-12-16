@@ -3,12 +3,10 @@ import 'package:string_calculator/utils/string_calculator.dart';
 
 void main() {
   group('StringCalculator', () {
-    test('returns 0 for empty string', () {
+    test('returns number for single value', () {
       final calculator = StringCalculator();
 
-      final result = calculator.add('');
-
-      expect(result, 0);
+      expect(calculator.add('1'), 1);
     });
   });
 }
