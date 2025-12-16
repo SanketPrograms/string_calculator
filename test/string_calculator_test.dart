@@ -3,7 +3,7 @@ import 'package:string_calculator/utils/string_calculator.dart';
 
 void main() {
   group('StringCalculator', () {
-    test('throws exception with all negative numbers', () {
+    test('shows all negative numbers in exception message', () {
       final calculator = StringCalculator();
 
       expect(
