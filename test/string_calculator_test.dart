@@ -3,10 +3,10 @@ import 'package:string_calculator/utils/string_calculator.dart';
 
 void main() {
   group('StringCalculator', () {
-    test('returns sum of multiple comma separated numbers', () {
+    test('supports new lines between numbers', () {
       final calculator = StringCalculator();
 
-      expect(calculator.add('1,2,3,4'), 10);
+      expect(calculator.add('1\n2,3'), 6);
     });
   });
 }
