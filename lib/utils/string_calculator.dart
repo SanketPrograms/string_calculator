@@ -1,6 +1,8 @@
 class StringCalculator {
   int add(String numbers) {
-    if (numbers.isEmpty) return 0;
+    if (numbers.isEmpty) {
+      return 0;
+    }
 
     String delimiter = ',';
     String numbersPart = numbers;
@@ -11,7 +13,21 @@ class StringCalculator {
       numbersPart = parts.last;
     }
 
-    final values = numbersPart.replaceAll('\n', delimiter).split(delimiter);
-    return values.map(int.parse).reduce((a, b) => a + b);
+    final values = numbersPart
+        .replaceAll('\n', delimiter)
+        .split(delimiter);
+
+    final parsedNumbers = values.map(int.parse).toList();
+
+    final negativeNumbers =
+    parsedNumbers.where((number) => number < 0).toList();
+
+    if (negativeNumbers.isNotEmpty) {
+      throw Exception(
+        'negative numbers not allowed ${negativeNumbers.join(',')}',
+      );
+    }
+
+    return parsedNumbers.fold(0, (sum, number) => sum + number);
   }
 }
