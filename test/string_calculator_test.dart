@@ -3,10 +3,10 @@ import 'package:string_calculator/utils/string_calculator.dart';
 
 void main() {
   group('StringCalculator', () {
-    test('supports new lines between numbers', () {
+    test('supports custom delimiter', () {
       final calculator = StringCalculator();
 
-      expect(calculator.add('1\n2,3'), 6);
+      expect(calculator.add('//;\n1;2'), 3);
     });
   });
 }
